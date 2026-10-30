@@ -13,10 +13,12 @@ export default function Home() {
       >
         <div className="flex items-center w-fit rounded-full py-2 px-4 gap-[10px] bg-[#000929]">
           <Image
-            src="/assets/images/icons/crown-white.svg"
-            className="w-5 h-5"
-            alt="icon"
-          />
+                src="/assets/images/icons/crown-white.svg"
+                width={20}
+                height={20}
+                className="w-5 h-5"
+                alt="icon"
+              />
           <span className="font-semibold text-white">
             We’ve won top productivity 500 fortunes
           </span>
@@ -35,11 +37,13 @@ export default function Home() {
             href="#"
             className="flex items-center rounded-full p-[20px_26px] gap-3 bg-[#0D903A]"
           >
-            <Image
-              src="/assets/images/icons/slider-horizontal-white.svg"
-              className="w-[30px] h-[30px]"
-              alt="icon"
-            />
+                 <Image
+                  src="/assets/images/icons/slider-horizontal-white.svg"
+                  width={30}
+                  height={30}
+                  className="w-[30px] h-[30px]"
+                  alt="icon"
+                />
             <span className="font-bold text-xl leading-[30px] text-[#F7F7FD]">
               Explore Now
             </span>
@@ -49,10 +53,12 @@ export default function Home() {
             className="flex items-center rounded-full border border-[#000929] p-[20px_26px] gap-3 bg-white"
           >
             <Image
-              src="/assets/images/icons/video-octagon.svg"
-              className="w-[30px] h-[30px]"
-              alt="icon"
-            />
+                  src="/assets/images/icons/video-octagon.svg"
+                  width={30}
+                  height={30}
+                  className="w-[30px] h-[30px]"
+                  alt="icon"
+                />
             <span className="font-semibold text-xl leading-[30px]">
               Watch Story
             </span>
@@ -63,20 +69,44 @@ export default function Home() {
         id="Hero-Image"
         className="absolute right-0 w-[calc(100%-((100%-1130px)/2)-305px)] h-[720px] rounded-bl-[40px] overflow-hidden"
       >
-        <Image
-          src="/assets/images/backgrounds/banner.webp"
-          className="w-full h-full object-cover"
-          alt="hero background"
-        />
+            <Image
+              src="/assets/images/backgrounds/banner.webp"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+              alt="hero background"
+            />
       </div>
     </section>
     <div className="flex flex-col pt-[150px] pb-10 px-[120px] gap-10 bg-[#0D903A]">
       <div className="logo-contianer flex items-center justify-center flex-wrap max-w-[1130px] h-[38px] mx-auto gap-[60px]">
-        <Image src="/assets/images/logos/TESLA.svg" alt="clients logo" />
-        <Image src="/assets/images/logos/Libra 2.svg" alt="clients logo" />
-        <Image src="/assets/images/logos/Binance logo.svg" alt="clients logo" />
-        <Image src="/assets/images/logos/Facebook 7.svg" alt="clients logo" />
-        <Image src="/assets/images/logos/Microsoft 6.svg" alt="clients logo" />
+        <Image 
+        src="/assets/images/logos/TESLA.svg" alt="clients logo" 
+                        width={140}
+                height={38}
+        />
+        <Image 
+        src="/assets/images/logos/Libra 2.svg" alt="clients logo" 
+                        width={140}
+                height={38}
+        />
+        <Image 
+        src="/assets/images/logos/Binance logo.svg" alt="clients logo" 
+                        width={140}
+                height={38}
+        />
+        <Image 
+        src="/assets/images/logos/Facebook 7.svg" alt="clients logo" 
+                        width={140}
+                height={38}
+        />
+        <Image 
+        src="/assets/images/logos/Microsoft 6.svg" alt="clients logo" 
+                        width={140}
+                height={38}
+        
+        />
       </div>
       <div className="flex justify-center gap-[50px]">
         <div className="flex flex-col gap-[2px] text-center">
@@ -134,6 +164,8 @@ export default function Home() {
               </div>
               <Image
                 src="/assets/images/thumbnails/thumbnails-2.png"
+                fill
+                    sizes="230px"
                 className="absolute w-full h-full object-cover"
                 alt="thumbnails"
               />
@@ -158,6 +190,8 @@ export default function Home() {
             src="/assets/images/icons/security-user.svg"
             className="w-[34px] h-[34px]"
             alt="icon"
+                width={24}
+                      height={24}
           />
         </div>
         <div className="flex flex-col gap-[5px]">
@@ -174,6 +208,8 @@ export default function Home() {
           <Image
             src="/assets/images/icons/group.svg"
             className="w-[34px] h-[34px]"
+                width={24}
+                      height={24}
             alt="icon"
           />
         </div>
@@ -190,6 +226,8 @@ export default function Home() {
             src="/assets/images/icons/3dcube.svg"
             className="w-[34px] h-[34px]"
             alt="icon"
+                width={24}
+                      height={24}
           />
         </div>
         <div className="flex flex-col gap-[5px]">
@@ -205,6 +243,8 @@ export default function Home() {
             src="/assets/images/icons/cup.svg"
             className="w-[34px] h-[34px]"
             alt="icon"
+                width={24}
+                      height={24}
           />
         </div>
         <div className="flex flex-col gap-[5px]">
@@ -220,6 +260,8 @@ export default function Home() {
             src="/assets/images/icons/coffee.svg"
             className="w-[34px] h-[34px]"
             alt="icon"
+                width={24}
+                      height={24}
           />
         </div>
         <div className="flex flex-col gap-[5px]">
@@ -237,6 +279,8 @@ export default function Home() {
             src="/assets/images/icons/home-trend-up.svg"
             className="w-[34px] h-[34px]"
             alt="icon"
+                width={24}
+                      height={24}
           />
         </div>
         <div className="flex flex-col gap-[5px]">
@@ -270,6 +314,8 @@ export default function Home() {
               src="/assets/images/thumbnails/thumbnails-1.png"
               className="w-full h-full object-cover"
               alt="thumbnails"
+                  width={265}
+                      height={124}
             />
           </div>
           <div className="card-detail-container flex flex-col p-5 pb-[30px] gap-4">
@@ -286,6 +332,8 @@ export default function Home() {
                   src="/assets/images/icons/clock.svg"
                   className="w-6 h-6"
                   alt="icon"
+                      width={24}
+                      height={24}
                 />
               </div>
             </div>
@@ -296,6 +344,8 @@ export default function Home() {
                   src="/assets/images/icons/location.svg"
                   className="w-6 h-6"
                   alt="icon"
+                      width={24}
+                      height={24}
                 />
                 <p className="font-semibold">Jakarta Pusat</p>
               </div>
@@ -305,6 +355,8 @@ export default function Home() {
                   src="/assets/images/icons/Star 1.svg"
                   className="w-6 h-6"
                   alt="icon"
+                      width={24}
+                      height={24}
                 />
               </div>
             </div>
@@ -315,6 +367,8 @@ export default function Home() {
                   src="/assets/images/icons/wifi.svg"
                   className="w-6 h-6"
                   alt="icon"
+                      width={24}
+                      height={24}
                 />
                 <p className="font-semibold">Fast-Connection</p>
               </div>
@@ -323,6 +377,8 @@ export default function Home() {
                   src="/assets/images/icons/security-user.svg"
                   className="w-6 h-6"
                   alt="icon"
+                      width={24}
+                      height={24}
                 />
                 <p className="font-semibold">Secure 100%</p>
               </div>
