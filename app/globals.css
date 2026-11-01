@@ -8,6 +8,10 @@
 */
 
 @import "tailwindcss";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
 
 :root {
   --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
