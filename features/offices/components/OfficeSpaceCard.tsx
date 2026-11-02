@@ -7,9 +7,15 @@ export default function OfficeSpaceCard({ officeSpace }: { officeSpace: OfficeSp
     <Link href={`/office/${officeSpace.slug}`} className="card">
       <div className="flex flex-col rounded-[20px] border border-[#E0DEF7] bg-white overflow-hidden">
         <div className="thumbnail-container relative w-full h-[200px]">
-          <p className="absolute top-5 left-5 z-10 w-fit rounded-full p-[6px_16px] bg-[#0D903A] font-bold text-sm leading-[21px] text-[#F7F7FD]">
-            Popular
-          </p>
+          {officeSpace.tags.map((tag, index) => (
+            <p
+              key={`${tag}-${index}`}
+              className="absolute top-5 left-5 z-10 w-fit rounded-full p-[6px_16px] bg-[#0D903A] font-bold text-sm leading-[21px] text-[#F7F7FD]"
+            >
+              {tag}
+            </p>
+          ))}
+
           <Image
             src={officeSpace.image[0]}
             alt={officeSpace.title}
@@ -46,11 +52,11 @@ export default function OfficeSpaceCard({ officeSpace }: { officeSpace: OfficeSp
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-end gap-[6px]">
               <Image src="/assets/images/icons/wifi.svg" className="w-6 h-6" alt="icon" width={24} height={24} />
-              <p className="font-semibold">Fast-Connection</p>
+              <p className="font-semibold">High Speed Wifi</p>
             </div>
             <div className="flex items-center justify-end gap-[6px]">
               <Image src="/assets/images/icons/security-user.svg" className="w-6 h-6" alt="icon" width={24} height={24} />
-              <p className="font-semibold">Secure 100%</p>
+              <p className="font-semibold">100% Privacy</p>
             </div>
           </div>
         </div>

@@ -16,7 +16,7 @@ export const officeSpaces: OfficeSpace[] = [
       "/assets/images/thumbnails/thumbnail-details-2.png",
       "/assets/images/thumbnails/thumbnail-details-3.png",
     ],
-    tags: ["Private Office", "Meeting Room", "Coworking Space"],
+    tags: ["Popular"],
     features: [
       "Privacy",
       "Global Event",
@@ -45,8 +45,8 @@ export const officeSpaces: OfficeSpace[] = [
     id: 2,
     title: "Ihsan Private Class Office Surabaya",
     slug: "ihsan-private-class-office-surabaya",
-    price: 11560000,
-    duration: "20 days",
+    price: 9560000,
+    duration: "10 days",
     location: "Surabaya",
     rating: 4.8,
     address:
@@ -56,7 +56,7 @@ export const officeSpaces: OfficeSpace[] = [
       "/assets/images/thumbnails/thumbnail-details-2.png",
       "/assets/images/thumbnails/thumbnail-details-3.png",
     ],
-    tags: ["Private Office", "Meeting Room", "Coworking Space"],
+    tags: ["Best Price"],
     features: [
       "Privacy",
       "Global Event",
