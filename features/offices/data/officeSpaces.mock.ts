@@ -11,10 +11,10 @@ export const officeSpaces: OfficeSpace[] = [
     rating: 4.5,
     address:
       "Jl. Jend. Sudirman No.Kav. 52-53, RT.5/RW.3, Karet Tengsin, Kecamatan Tanah Abang, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10220",
-    image: ["assets/images/thumbnails/thumbnail-details-1.png"],
+    image: ["/assets/images/thumbnails/thumbnail-details-1.png"],
     images: [
-      "assets/images/thumbnails/thumbnail-details-2.png",
-      "assets/images/thumbnails/thumbnail-details-3.png",
+      "/assets/images/thumbnails/thumbnail-details-2.png",
+      "/assets/images/thumbnails/thumbnail-details-3.png",
     ],
     tags: ["Private Office", "Meeting Room", "Coworking Space"],
     features: [
@@ -51,10 +51,10 @@ export const officeSpaces: OfficeSpace[] = [
     rating: 4.8,
     address:
       "Jl. Jend. Sudirman No.Kav. 52-53, RT.5/RW.3, Kecamatan Surabaya, Kota Surabaya, Jawa Timur 10320",
-    image: ["assets/images/thumbnails/thumbnail-details-1.png"],
+    image: ["/assets/images/thumbnails/thumbnail-details-2.png"],
     images: [
-      "assets/images/thumbnails/thumbnail-details-2.png",
-      "assets/images/thumbnails/thumbnail-details-3.png",
+      "/assets/images/thumbnails/thumbnail-details-2.png",
+      "/assets/images/thumbnails/thumbnail-details-3.png",
     ],
     tags: ["Private Office", "Meeting Room", "Coworking Space"],
     features: [

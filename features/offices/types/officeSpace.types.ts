@@ -19,6 +19,5 @@ export type OfficeSpace = {
 export type SalesContact = {
     name: string
     role: string
-    // phone: string
     photo: string
 }
