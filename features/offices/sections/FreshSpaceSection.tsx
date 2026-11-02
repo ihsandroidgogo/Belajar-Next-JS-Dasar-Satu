@@ -28,7 +28,7 @@ export default function FreshSpaceSection(){
           </div>
           <div className="card-detail-container flex flex-col p-5 pb-[30px] gap-4">
             <h3 className="line-clamp-2 font-bold text-[22px] leading-[36px] h-[72px]">
-              Angga Park Central Master Silicon Valley Star Class
+              Ihsan Park Central Master Silicon Valley Star Class
             </h3>
             <div className="flex items-center justify-between">
               <p className="font-semibold text-xl leading-[30px]">
