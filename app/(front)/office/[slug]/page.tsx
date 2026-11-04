@@ -1,110 +1,122 @@
+import Image from "next/image";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import OfficeHeader from "@/features/offices/components/OfficeHeader";
+import { officeSpaces } from "@/features/offices/data/officeSpaces.mock";
+import { notFound } from "next/navigation";
+import { Suspense } from "react";
 
-export default function OfficeSpaceDetailPage(){
-    return(
-        <>
-    <Navbar/>
-  <section id="Gallery" className="-mb-[50px]">
-    <div className="swiper w-full">
-      <div className="swiper-wrapper">
-        <div className="swiper-slide !w-fit">
-          <div className="w-[700px] h-[550px] overflow-hidden">
-            <img
-              src="/assets/images/thumbnails/thumbnail-details-1.png"
-              className="w-full h-full object-cover"
-              alt="thumbnail"
-            />
-          </div>
-        </div>
-        <div className="swiper-slide !w-fit">
-          <div className="w-[700px] h-[550px] overflow-hidden">
-            <img
-              src="/assets/images/thumbnails/thumbnail-details-2.png"
-              className="w-full h-full object-cover"
-              alt="thumbnail"
-            />
-          </div>
-        </div>
-        <div className="swiper-slide !w-fit">
-          <div className="w-[700px] h-[550px] overflow-hidden">
-            <img
-              src="/assets/images/thumbnails/thumbnail-details-3.png"
-              className="w-full h-full object-cover"
-              alt="thumbnail"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export function generateStaticParams() {
+  return officeSpaces.map((office) => ({ slug: office.slug }));
+}
+
+export default function OfficeSpaceDetailPage({ params }: Props) {
+  return (
+    <>
+      <Navbar />
+      <Suspense fallback={<p className="p-10">Loading...</p>}>
+        <OfficeDetails params={params} />
+      </Suspense>
+    </>
+  );
+}
+
+async function OfficeDetails({ params }: Props) {
+  const { slug } = await params;
+
+  const office = officeSpaces.find((item) => item.slug === slug);
+  if (!office) notFound();
+
+  return (
+    <>
+      <OfficeHeader />
+      <section id="Details" className="relative flex max-w-[1130px] mx-auto gap-[30px] mb-20 z-10">
+        {
+            <section
     id="Details"
     className="relative flex max-w-[1130px] mx-auto gap-[30px] mb-20 z-10"
   >
     <div className="flex flex-col w-full rounded-[20px] border border-[#E0DEF7] p-[30px] gap-[30px] bg-white">
-      <p className="w-fit rounded-full p-[6px_16px] bg-[#0D903A] font-bold text-sm leading-[21px] text-[#F7F7FD]">
-        Popular
+        {office.tags.map((tag, index) => (
+            <p key={`${tag}-${index}`} 
+            className="w-fit rounded-full p-[6px_16px] bg-[#0D903A] font-bold text-sm leading-[21px] text-[#F7F7FD]">
+              {tag}
       </p>
+          ))}
       <div className="flex items-center justify-between">
         <div>
           <h1 className="font-extrabold text-[32px] leading-[44px]">
-            Angga Park Central <br /> Master Capitalize
+            {office.title}
           </h1>
           <div className="flex items-center gap-[6px] mt-[10px]">
-            <img
+            <Image
               src="/assets/images/icons/location.svg"
               className="w-6 h-6"
               alt="icon"
+              width={24}
+              height={24}
             />
-            <p className="font-semibold">Jakarta Pusat</p>
+            <p className="font-semibold">{office.location}</p>
           </div>
         </div>
         <div className="flex flex-col gap-[6px]">
           <div className="flex items-center gap-1">
-            <img
+            <Image
               src="/assets/images/icons/Star 1.svg"
               className="w-5 h-5"
               alt="star"
+              width={20}
+              height={20}
             />
-            <img
+            <Image
               src="/assets/images/icons/Star 1.svg"
               className="w-5 h-5"
               alt="star"
+              width={20}
+              height={20}
             />
-            <img
+            <Image
               src="/assets/images/icons/Star 1.svg"
               className="w-5 h-5"
               alt="star"
+               width={20}
+              height={20}
             />
-            <img
+            <Image
               src="/assets/images/icons/Star 1.svg"
               className="w-5 h-5"
               alt="star"
+               width={20}
+              height={20}
             />
-            <img
+            <Image
               src="/assets/images/icons/Star 5.svg"
               className="w-5 h-5"
               alt="star"
+               width={20}
+              height={20}
             />
           </div>
-          <p className="font-semibold text-right">4.5/5 (19,384)</p>
+          <p className="font-semibold text-right">{office.rating}/5 (19,384)</p>
         </div>
       </div>
       <p className="leading-[30px]">
-        Whether you need quite private space away from the distractions of an
-        at-times chaotic home office, you’re on a team that needs to brainstorm
-        and collaborate in person, or you’re owner meeting with prospective
-        hires, clients, and partners, having access to hundreds of workspaces
-        can be a game-changing resource.
+        {office.about}
       </p>
       <hr className="border-[#F6F5FD]" />
       <h2 className="font-bold">You Get What You Need Most</h2>
       <div className="grid grid-cols-3 gap-x-5 gap-y-[30px]">
         <div className="flex items-center gap-4">
-          <img
+          <Image
             src="/assets/images/icons/security-user.svg"
             className="w-[34px] h-[34px]"
             alt="icon"
+            width={34}
+            height={34}
           />
           <div className="flex flex-col gap-[2px]">
             <p className="font-bold text-lg leading-[24px]">Privacy</p>
@@ -112,10 +124,12 @@ export default function OfficeSpaceDetailPage(){
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <img
+          <Image
             src="/assets/images/icons/cup.svg"
             className="w-[34px] h-[34px]"
             alt="icon"
+            width={34}
+            height={34}
           />
           <div className="flex flex-col gap-[2px]">
             <p className="font-bold text-lg leading-[24px]">Global Event</p>
@@ -123,10 +137,12 @@ export default function OfficeSpaceDetailPage(){
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <img
+          <Image
             src="/assets/images/icons/home-trend-up.svg"
             className="w-[34px] h-[34px]"
             alt="icon"
+                        width={34}
+            height={34}
           />
           <div className="flex flex-col gap-[2px]">
             <p className="font-bold text-lg leading-[24px]">Sustainbility</p>
@@ -134,10 +150,12 @@ export default function OfficeSpaceDetailPage(){
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <img
+          <Image
             src="/assets/images/icons/coffee.svg"
             className="w-[34px] h-[34px]"
             alt="icon"
+            width={34}
+            height={34}
           />
           <div className="flex flex-col gap-[2px]">
             <p className="font-bold text-lg leading-[24px]">Extra Snacks</p>
@@ -145,10 +163,12 @@ export default function OfficeSpaceDetailPage(){
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <img
+          <Image
             src="/assets/images/icons/3dcube.svg"
             className="w-[34px] h-[34px]"
             alt="icon"
+            width={34}
+            height={34}
           />
           <div className="flex flex-col gap-[2px]">
             <p className="font-bold text-lg leading-[24px]">Compact</p>
@@ -156,10 +176,12 @@ export default function OfficeSpaceDetailPage(){
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <img
+          <Image
             src="/assets/images/icons/group.svg"
             className="w-[34px] h-[34px]"
             alt="icon"
+            width={34}
+            height={34}
           />
           <div className="flex flex-col gap-[2px]">
             <p className="font-bold text-lg leading-[24px]">Free Move</p>
@@ -170,7 +192,7 @@ export default function OfficeSpaceDetailPage(){
       <hr className="border-[#F6F5FD]" />
       <div className="flex flex-col gap-[6px]">
         <h2 className="font-bold">Office Address</h2>
-        <p>Angga Park Central Master Capitalize</p>
+        <p>Ihsan Park Central Master Capitalize</p>
         <p>BLDG E16, 13 Xicheng District, Beijing, China, 100000</p>
       </div>
       <div className="overflow-hidden w-full h-[280px]">
@@ -201,30 +223,36 @@ export default function OfficeSpaceDetailPage(){
         <hr className="border-[#F6F5FD]" />
         <div className="flex flex-col gap-5">
           <div className="flex items-center gap-3">
-            <img
+            <Image
               src="/assets/images/icons/verify.svg"
               className="w-[30px] h-[30px]"
               alt="icon"
+              width={30}
+              height={30}
             />
             <p className="font-semibold leading-[28px]">
               Mendapatkan akses pembelajaran terbaru terkait dunia startup
             </p>
           </div>
           <div className="flex items-center gap-3">
-            <img
+            <Image
               src="/assets/images/icons/verify.svg"
               className="w-[30px] h-[30px]"
               alt="icon"
+              width={30}
+              height={30}
             />
             <p className="font-semibold leading-[28px]">
               Mendapatkan akses pembelajaran terbaru terkait dunia startup
             </p>
           </div>
           <div className="flex items-center gap-3">
-            <img
+            <Image
               src="/assets/images/icons/verify.svg"
               className="w-[30px] h-[30px]"
               alt="icon"
+              width={30}
+              height={30}
             />
             <p className="font-semibold leading-[28px]">
               Mendapatkan akses pembelajaran terbaru terkait dunia startup
@@ -237,18 +265,22 @@ export default function OfficeSpaceDetailPage(){
             href="booking.html"
             className="flex items-center justify-center w-full rounded-full p-[16px_26px] gap-3 bg-[#0D903A] font-bold text-[#F7F7FD]"
           >
-            <img
+            <Image
               src="/assets/images/icons/slider-horizontal-white.svg"
               className="w-6 h-6"
               alt="icon"
+              width={24}
+              height={24}
             />
             <span>Book This Office</span>
           </a>
           <button className="flex items-center justify-center w-full rounded-full border border-[#000929] p-[16px_26px] gap-3 bg-white font-semibold">
-            <img
+            <Image
               src="/assets/images/icons/save-add.svg"
               className="w-6 h-6"
               alt="icon"
+              width={24}
+              height={24}
             />
             <span>Save for Later</span>
           </button>
@@ -260,10 +292,12 @@ export default function OfficeSpaceDetailPage(){
           <div className="flex items-center justify-between gap-3">
             <div className="flex items-center gap-4">
               <div className="w-[60px] h-[60px] rounded-full overflow-hidden">
-                <img
+                <Image
                   src="/assets/images/photos/photo-1.png"
                   className="w-full h-full object-cover"
                   alt="photo"
+                  width={60}
+                  height={60}
                 />
               </div>
               <div className="flex flex-col gap-[2px]">
@@ -273,17 +307,21 @@ export default function OfficeSpaceDetailPage(){
             </div>
             <div className="flex items-center gap-3">
               <a href="#">
-                <img
+                <Image
                   src="/assets/images/icons/call-green.svg"
                   className="w-10 h-10"
                   alt="icon"
+                  width={40}
+                  height={40}
                 />
               </a>
               <a href="#">
-                <img
+                <Image
                   src="/assets/images/icons/chat-green.svg"
                   className="w-10 h-10"
                   alt="icon"
+                  width={40}
+                  height={40}
                 />
               </a>
             </div>
@@ -291,10 +329,12 @@ export default function OfficeSpaceDetailPage(){
           <div className="flex items-center justify-between gap-3">
             <div className="flex items-center gap-4">
               <div className="w-[60px] h-[60px] rounded-full overflow-hidden">
-                <img
+                <Image
                   src="/assets/images/photos/photo-2.png"
                   className="w-full h-full object-cover"
                   alt="photo"
+                  width={60}
+                  height={60}
                 />
               </div>
               <div className="flex flex-col gap-[2px]">
@@ -304,17 +344,21 @@ export default function OfficeSpaceDetailPage(){
             </div>
             <div className="flex items-center gap-3">
               <a href="#">
-                <img
+                <Image
                   src="/assets/images/icons/call-green.svg"
                   className="w-10 h-10"
                   alt="icon"
+                  width={40}
+                  height={40}
                 />
               </a>
               <a href="#">
-                <img
+                <Image
                   src="/assets/images/icons/chat-green.svg"
                   className="w-10 h-10"
                   alt="icon"
+                  width={40}
+                  height={40}
                 />
               </a>
             </div>
@@ -323,7 +367,8 @@ export default function OfficeSpaceDetailPage(){
       </div>
     </div>
   </section>
-</>
-
-    )
+        }
+      </section>
+    </>
+  );
 }

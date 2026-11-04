@@ -3,8 +3,8 @@ import { OfficeSpace } from "../types/officeSpace.types";
 export const officeSpaces: OfficeSpace[] = [
   {
     id: 1,
-    title: "Ihsan Park Central Master Silicon Valley Star Class",
-    slug: "ihsan-park-central-master-silicon-valley-star-class",
+    title: "Ihsan Park Central Master Valley Class",
+    slug: "ihsan-park-central-master-valley-class",
     price: 18560000,
     duration: "20 days",
     location: "Jakarta Pusat",
