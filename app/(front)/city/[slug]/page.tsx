@@ -1,21 +1,35 @@
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import { cities } from "@/features/cities/data/cities.mock";
 import OfficeSpaceCard from "@/features/offices/components/OfficeSpaceCard";
 import { officeSpaces } from "@/features/offices/data/officeSpaces.mock";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
-export default async function City({ params }: Props) {
+export function generateStaticParams() {
+  return cities.map((city) => ({ slug: city.slug }));
+}
+
+export default function CityPage({ params }: Props) {
+  return (
+    <Suspense fallback={<p className="p-10">Loading...</p>}>
+      <CityContent params={params} />
+    </Suspense>
+  );
+}
+
+async function CityContent({ params }: Props) {
   const { slug } = await params;
 
   const city = cities.find((c) => c.slug === slug);
   if (!city) notFound();
 
 const cityOffices = officeSpaces.filter((office) =>
-  office.location.toLowerCase().includes(city.name.toLowerCase())
+  office.location?.toLowerCase().includes(city.name.toLowerCase())
 );
   
     return(
@@ -40,10 +54,13 @@ const cityOffices = officeSpaces.filter((office) =>
         id="Hero-Image"
         className="absolute right-0 w-[calc(100%-((100%-1130px)/2)-305px)] h-[434px] rounded-bl-[40px] overflow-hidden"
       >
-        <img
+        <Image
           src="/assets/images/thumbnails/thumbnail-details-4.png"
           className="w-full h-full object-cover"
           alt="hero background"
+          width={1000}
+          height={434}
+          priority
         />
       </div>
     </section>
