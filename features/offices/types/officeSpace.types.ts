@@ -1,4 +1,5 @@
 export type OfficeSpace = {
+    city: string
     id: number
     title: string
     slug: string
