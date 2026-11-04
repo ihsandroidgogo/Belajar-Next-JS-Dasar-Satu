@@ -5,6 +5,7 @@ import OfficeHeader from "@/features/offices/components/OfficeHeader";
 import { officeSpaces } from "@/features/offices/data/officeSpaces.mock";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import OfficeFeatures from "@/features/offices/components/OfficeFeatures";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -109,98 +110,17 @@ async function OfficeDetails({ params }: Props) {
       </p>
       <hr className="border-[#F6F5FD]" />
       <h2 className="font-bold">You Get What You Need Most</h2>
-      <div className="grid grid-cols-3 gap-x-5 gap-y-[30px]">
-        <div className="flex items-center gap-4">
-          <Image
-            src="/assets/images/icons/security-user.svg"
-            className="w-[34px] h-[34px]"
-            alt="icon"
-            width={34}
-            height={34}
-          />
-          <div className="flex flex-col gap-[2px]">
-            <p className="font-bold text-lg leading-[24px]">Privacy</p>
-            <p className="text-sm leading-[21px]">For Yourself</p>
-          </div>
-        </div>
-        <div className="flex items-center gap-4">
-          <Image
-            src="/assets/images/icons/cup.svg"
-            className="w-[34px] h-[34px]"
-            alt="icon"
-            width={34}
-            height={34}
-          />
-          <div className="flex flex-col gap-[2px]">
-            <p className="font-bold text-lg leading-[24px]">Global Event</p>
-            <p className="text-sm leading-[21px]">Startup Contest</p>
-          </div>
-        </div>
-        <div className="flex items-center gap-4">
-          <Image
-            src="/assets/images/icons/home-trend-up.svg"
-            className="w-[34px] h-[34px]"
-            alt="icon"
-                        width={34}
-            height={34}
-          />
-          <div className="flex flex-col gap-[2px]">
-            <p className="font-bold text-lg leading-[24px]">Sustainbility</p>
-            <p className="text-sm leading-[21px]">Long-term Goals</p>
-          </div>
-        </div>
-        <div className="flex items-center gap-4">
-          <Image
-            src="/assets/images/icons/coffee.svg"
-            className="w-[34px] h-[34px]"
-            alt="icon"
-            width={34}
-            height={34}
-          />
-          <div className="flex flex-col gap-[2px]">
-            <p className="font-bold text-lg leading-[24px]">Extra Snacks</p>
-            <p className="text-sm leading-[21px]">Work-Life Balance</p>
-          </div>
-        </div>
-        <div className="flex items-center gap-4">
-          <Image
-            src="/assets/images/icons/3dcube.svg"
-            className="w-[34px] h-[34px]"
-            alt="icon"
-            width={34}
-            height={34}
-          />
-          <div className="flex flex-col gap-[2px]">
-            <p className="font-bold text-lg leading-[24px]">Compact</p>
-            <p className="text-sm leading-[21px]">Good for Focus</p>
-          </div>
-        </div>
-        <div className="flex items-center gap-4">
-          <Image
-            src="/assets/images/icons/group.svg"
-            className="w-[34px] h-[34px]"
-            alt="icon"
-            width={34}
-            height={34}
-          />
-          <div className="flex flex-col gap-[2px]">
-            <p className="font-bold text-lg leading-[24px]">Free Move</p>
-            <p className="text-sm leading-[21px]">Anytime 24/7</p>
-          </div>
-        </div>
-      </div>
+      <OfficeFeatures/>
       <hr className="border-[#F6F5FD]" />
       <div className="flex flex-col gap-[6px]">
         <h2 className="font-bold">Office Address</h2>
-        <p>Ihsan Park Central Master Capitalize</p>
-        <p>BLDG E16, 13 Xicheng District, Beijing, China, 100000</p>
+        <p>{office.address}</p>
       </div>
       <div className="overflow-hidden w-full h-[280px]">
         <div id="my-map-display" className="h-full w-full max-w-[none] bg-none">
           <iframe
             className="h-full w-full border-0"
-            frameBorder={0}
-            src="https://www.google.com/maps/embed/v1/place?q=Xicheng+District,+Beijing,&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+            src={`https://www.google.com/maps/embed/v1/place?q=${office.title}&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8`}
           />
         </div>
         <a
