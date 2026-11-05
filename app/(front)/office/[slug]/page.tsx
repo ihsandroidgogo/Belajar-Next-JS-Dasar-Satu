@@ -134,12 +134,21 @@ async function OfficeDetails({ params }: Props) {
     </div>
     <div className="w-[392px] flex flex-col shrink-0 gap-[30px]">
       <div className="flex flex-col rounded-[20px] border border-[#E0DEF7] p-[30px] gap-[30px] bg-white">
+        
+        {office.isFullyBooked ? (
         <div>
+          <p className="font-bold text-xl leading-[30px]">Sorry. This office is <span className="text-[#FF2D2D]">fully booked</span> at this moment, try next time.</p>
+          </div>
+        ) : (
+          <div>
           <p className="font-extrabold text-[32px] leading-[48px] text-[#0D903A]">
-            Rp 18.540.000
+            Rp {office.price.toLocaleString("id-ID")}
           </p>
-          <p className="font-semibold mt-1">For 20 days working</p>
+          <p className="font-semibold mt-1">For {office.duration} days working</p>
         </div>
+        )}
+
+
         <hr className="border-[#F6F5FD]" />
         <div className="flex flex-col gap-5">
           <div className="flex items-center gap-3">
@@ -181,6 +190,20 @@ async function OfficeDetails({ params }: Props) {
         </div>
         <hr className="border-[#F6F5FD]" />
         <div className="flex flex-col gap-[14px]">
+
+
+        {office.isFullyBooked ? (
+          <button className="flex items-center justify-center w-full rounded-full border border-[#000929] p-[16px_26px] gap-3 bg-white font-semibold">
+            <Image
+              src="/assets/images/icons/save-add.svg"
+              className="w-6 h-6"
+              alt="icon"
+              width={24}
+              height={24}
+            />
+            <span>Save for Later</span>
+          </button>
+        ) : (
           <a
             href="booking.html"
             className="flex items-center justify-center w-full rounded-full p-[16px_26px] gap-3 bg-[#0D903A] font-bold text-[#F7F7FD]"
@@ -194,16 +217,8 @@ async function OfficeDetails({ params }: Props) {
             />
             <span>Book This Office</span>
           </a>
-          <button className="flex items-center justify-center w-full rounded-full border border-[#000929] p-[16px_26px] gap-3 bg-white font-semibold">
-            <Image
-              src="/assets/images/icons/save-add.svg"
-              className="w-6 h-6"
-              alt="icon"
-              width={24}
-              height={24}
-            />
-            <span>Save for Later</span>
-          </button>
+        )}
+        
         </div>
       </div>
       <div className="flex flex-col rounded-[20px] border border-[#E0DEF7] p-[30px] gap-[20px] bg-white">

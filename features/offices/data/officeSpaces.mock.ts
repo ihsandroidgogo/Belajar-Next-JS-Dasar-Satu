@@ -3,8 +3,8 @@ import { OfficeSpace } from "../types/officeSpace.types";
 export const officeSpaces: OfficeSpace[] = [
   {
     id: 1,
-    title: "Ihsan Park Central Master Valley Class",
-    slug: "ihsan-park-central-master-valley-class",
+    title: "GoWork Jakarta",
+    slug: "gowork-jakarta",
     price: 18560000,
     duration: "20 days",
     location: "Jakarta Pusat",
@@ -25,7 +25,7 @@ export const officeSpaces: OfficeSpace[] = [
       "Free Move",
     ],
     about: "Ihsan Park Central Master Silicon Valley Star Class is a premium office space located in the heart of Jakarta Pusat. It offers a modern and professional environment for businesses of all sizes. With state-of-the-art facilities and amenities, it is designed to meet the needs of today's dynamic workforce.",
-    isFullyBooked: false,
+    isFullyBooked: true,
     salesContact: [
       {
         name: "Masayoshi",
