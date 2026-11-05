@@ -22,3 +22,9 @@ export type SalesContact = {
     role: string
     photo: string
 }
+
+export type Contact = {
+    name: string
+    role: string
+    photo: string
+}

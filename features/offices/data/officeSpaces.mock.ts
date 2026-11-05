@@ -28,12 +28,12 @@ export const officeSpaces: OfficeSpace[] = [
     isFullyBooked: true,
     salesContact: [
       {
-        name: "Masayoshi",
+        name: "Muhammad Ihsan",
         role: "Sales Manager",
         photo: "/assets/images/photos/photo-1.png",
       },
       {
-        name: "Fuji Ovina",
+        name: "Neno Balqis",
         role: "Sales Manager",
         photo: "/assets/images/photos/photo-2.png",
       },
@@ -73,6 +73,11 @@ export const officeSpaces: OfficeSpace[] = [
        },
        {
          name: "Ayana Shahab",
+         role: "Sales Manager",
+         photo: "/assets/images/photos/photo-2.png",
+       },
+              {
+         name: "Mona Nabilah",
          role: "Sales Manager",
          photo: "/assets/images/photos/photo-2.png",
        },
