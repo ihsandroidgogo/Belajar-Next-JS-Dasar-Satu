@@ -35,7 +35,7 @@ async function OfficeDetails({ params }: Props) {
 
   return (
     <>
-      <OfficeHeader />
+      <OfficeHeader image={office.image} images={office.images} />
       <section id="Details" className="relative flex max-w-[1130px] mx-auto gap-[30px] mb-20 z-10">
         {
             <section

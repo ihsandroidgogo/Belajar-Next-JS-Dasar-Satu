@@ -17,7 +17,7 @@ export default function OfficeSpaceCard({ officeSpace }: { officeSpace: OfficeSp
           ))}
 
           <Image
-            src={officeSpace.image[0]}
+            src={officeSpace.image}
             alt={officeSpace.title}
             width={265}
             height={124}
