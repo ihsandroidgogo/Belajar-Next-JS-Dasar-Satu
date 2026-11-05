@@ -44,7 +44,7 @@ export const officeSpaces: OfficeSpace[] = [
       "/assets/images/thumbnails/thumbnail-details-1.png",
     ],
     tags: ["Best Price"],
-    features: ["Privacy", "Global Event", "Sustainability", "Extra Snacks", "Compact", "Free Move"],
+    features: ["Global Event","Extra Snacks", "Compact"],
     about:
       "Ihsan Private Class Office Surabaya is a premium office space located in Surabaya. It offers a modern and professional environment for businesses of all sizes, with state-of-the-art facilities designed to meet the needs of today's dynamic workforce.",
     isFullyBooked: false,

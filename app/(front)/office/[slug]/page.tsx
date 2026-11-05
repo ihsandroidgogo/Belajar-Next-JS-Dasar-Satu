@@ -111,7 +111,7 @@ async function OfficeDetails({ params }: Props) {
       </p>
       <hr className="border-[#F6F5FD]" />
       <h2 className="font-bold">You Get What You Need Most</h2>
-      <OfficeFeatures/>
+      <OfficeFeatures features={office.features} />
       <hr className="border-[#F6F5FD]" />
       <div className="flex flex-col gap-[6px]">
         <h2 className="font-bold">Office Address</h2>
@@ -206,7 +206,8 @@ async function OfficeDetails({ params }: Props) {
           </button>
         ) : (
           <a
-            href="booking.html"
+            target="_blank"
+            href={`https://wa.me/6281280095911?text=Halo, saya ingin memesan kantor ${office.title} detailnya di http://localhost:3000/office/${office.slug}`}
             className="flex items-center justify-center w-full rounded-full p-[16px_26px] gap-3 bg-[#0D903A] font-bold text-[#F7F7FD]"
           >
             <Image
